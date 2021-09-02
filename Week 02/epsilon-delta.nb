@@ -1,0 +1,644 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     23441,        636]
+NotebookOptionsPosition[     22889,        620]
+NotebookOutlinePosition[     23292,        636]
+CellTagsIndexPosition[     23249,        633]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"f", "[", "x_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"0.15", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", 
+       SuperscriptBox["x", "2"]}], "-", 
+      RowBox[{"5", "x"}], "+", 
+      RowBox[{"4", 
+       RowBox[{"Cos", "[", 
+        RowBox[{
+         RowBox[{"2", "x"}], "+", "1"}], "]"}]}]}], ")"}]}], "+", 
+   "2"}]}], "\[IndentingNewLine]", 
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"a", "=", "2"}], ",", 
+     RowBox[{"xl", "=", "0"}], ",", 
+     RowBox[{"xu", "=", "4"}], ",", 
+     RowBox[{"yl", "=", "0"}], ",", 
+     RowBox[{"yu", "=", "4"}], ",", 
+     RowBox[{"emin", "=", "0.1"}], ",", 
+     RowBox[{"emax", "=", "1.0"}]}], "}"}], ",", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "gl", ",", "gr", ",", "hline", ",", "vline", ",", "hbar", ",", "vbar",
+          ",", 
+         RowBox[{"blank", "=", 
+          RowBox[{"Graphics", "[", "]"}]}]}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"hline", "=", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{"Black", ",", "Dashed", ",", 
+            RowBox[{"InfiniteLine", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "l"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"1", ",", "0"}], "}"}]}], "]"}]}], "}"}], "]"}]}], ";",
+         "\[IndentingNewLine]", 
+        RowBox[{"vline", "=", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{"Black", ",", "Dashed", ",", 
+            RowBox[{"InfiniteLine", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"a", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "1"}], "}"}]}], "]"}]}], "}"}], "]"}]}], ";",
+         "\[IndentingNewLine]", 
+        RowBox[{"hbar", "=", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{"LightRed", ",", 
+            RowBox[{"Opacity", "[", "0.4", "]"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"xl", "-", "1"}], ",", 
+                RowBox[{"l", "+", 
+                 RowBox[{"emin", "/", "2"}]}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"xu", "+", "1"}], ",", 
+                RowBox[{"l", "+", "\[Epsilon]"}]}], "}"}]}], "]"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"xl", "-", "1"}], ",", 
+                RowBox[{"l", "-", "\[Epsilon]"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"xu", "+", "1"}], ",", 
+                RowBox[{"l", "-", 
+                 RowBox[{"emin", "/", "2"}]}]}], "}"}]}], "]"}]}], "}"}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"vbar", "=", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{"LightBlue", ",", 
+            RowBox[{"Opacity", "[", "0.5", "]"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"a", "-", "\[Delta]"}], ",", 
+                RowBox[{"yl", "-", "1"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"a", "-", 
+                 RowBox[{"emin", "/", "2"}]}], ",", 
+                RowBox[{"yu", "+", "1"}]}], "}"}]}], "]"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"a", "+", 
+                 RowBox[{"emin", "/", "2"}]}], ",", 
+                RowBox[{"yl", "-", "1"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"a", "+", "\[Delta]"}], ",", 
+                RowBox[{"yu", "+", "1"}]}], "}"}]}], "]"}]}], "}"}], "]"}]}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"gl", "=", 
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{"f", "[", "x", "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", "xl", ",", 
+             RowBox[{"a", "-", 
+              RowBox[{"emin", "/", "2"}]}]}], "}"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"Thick", ",", "Black"}], "}"}]}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"gr", "=", 
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{"f", "[", "x", "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", 
+             RowBox[{"a", "+", 
+              RowBox[{"emin", "/", "2"}]}], ",", "xu"}], "}"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"Thick", ",", "Black"}], "}"}]}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Show", "[", 
+         RowBox[{"hline", ",", "vline", ",", 
+          RowBox[{"If", "[", 
+           RowBox[{"\[Epsilon]s", ",", "hbar", ",", "blank"}], "]"}], ",", 
+          RowBox[{"If", "[", 
+           RowBox[{"\[Delta]s", ",", "vbar", ",", "blank"}], "]"}], ",", "gl",
+           ",", "gr", ",", 
+          RowBox[{"PlotRange", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"xl", ",", "xu"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"yl", ",", "yu"}], "}"}]}], "}"}]}], ",", 
+          RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+          RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]}]}], 
+      "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"l", ",", 
+         RowBox[{"f", "[", "a", "]"}], ",", "\"\<L\>\""}], "}"}], ",", "yl", 
+       ",", "yu"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\[Epsilon]", ",", "0.25", ",", "\"\<\[Epsilon]\>\""}], "}"}],
+        ",", "emin", ",", "emax"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\[Delta]", ",", "0.25", ",", "\"\<\[Delta]\>\""}], "}"}], 
+       ",", "emin", ",", "emax"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\[Epsilon]s", ",", "False", ",", "\"\<show \[Epsilon]\>\""}],
+         "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"False", ",", "True"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\[Delta]s", ",", "False", ",", "\"\<show \[Delta]\>\""}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"False", ",", "True"}], "}"}]}], "}"}]}], "]"}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.839601621357916*^9, 3.839602457763996*^9}, {
+  3.8396024908128405`*^9, 3.839602612551046*^9}, {3.8396026520845323`*^9, 
+  3.839602679793269*^9}},
+ CellLabel->
+  "In[122]:=",ExpressionUUID->"c80e9cb2-1ead-469c-bd99-1500103a50a1"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"g", "[", "x_", "]"}], ":=", 
+  RowBox[{"Piecewise", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"0.2", "x"}], "+", "2.5", "+", 
+        RowBox[{"0.25", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"x", "-", "2"}], "]"}]}]}], ",", 
+       RowBox[{"x", "<", "2"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", "x", "]"}], "+", 
+        RowBox[{"0.5", "x"}], "+", "1"}], ",", 
+       RowBox[{"x", "\[GreaterEqual]", "2"}]}], "}"}]}], "}"}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"a", "=", "2"}], ",", 
+     RowBox[{"xl", "=", "0"}], ",", 
+     RowBox[{"xu", "=", "4"}], ",", 
+     RowBox[{"yl", "=", "0"}], ",", 
+     RowBox[{"yu", "=", "4"}], ",", 
+     RowBox[{"emin", "=", "0.1"}], ",", 
+     RowBox[{"emax", "=", "1.0"}]}], "}"}], ",", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "gl", ",", "gr", ",", "hline", ",", "vline", ",", "hbar", ",", "vbar",
+          ",", 
+         RowBox[{"blank", "=", 
+          RowBox[{"Graphics", "[", "]"}]}]}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"hline", "=", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{"Black", ",", "Dashed", ",", 
+            RowBox[{"InfiniteLine", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "l"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"1", ",", "0"}], "}"}]}], "]"}]}], "}"}], "]"}]}], ";",
+         "\[IndentingNewLine]", 
+        RowBox[{"vline", "=", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{"Black", ",", "Dashed", ",", 
+            RowBox[{"InfiniteLine", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"a", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "1"}], "}"}]}], "]"}]}], "}"}], "]"}]}], ";",
+         "\[IndentingNewLine]", 
+        RowBox[{"hbar", "=", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{"LightRed", ",", 
+            RowBox[{"Opacity", "[", "0.4", "]"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"xl", "-", "1"}], ",", 
+                RowBox[{"l", "+", 
+                 RowBox[{"emin", "/", "2"}]}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"xu", "+", "1"}], ",", 
+                RowBox[{"l", "+", "\[Epsilon]"}]}], "}"}]}], "]"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"xl", "-", "1"}], ",", 
+                RowBox[{"l", "-", "\[Epsilon]"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"xu", "+", "1"}], ",", 
+                RowBox[{"l", "-", 
+                 RowBox[{"emin", "/", "2"}]}]}], "}"}]}], "]"}]}], "}"}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"vbar", "=", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{"LightBlue", ",", 
+            RowBox[{"Opacity", "[", "0.5", "]"}], ",", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"dir", "\[NotEqual]", "2"}], ",", 
+              RowBox[{"Rectangle", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"a", "-", "\[Delta]"}], ",", 
+                  RowBox[{"yl", "-", "1"}]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"a", "-", 
+                   RowBox[{"emin", "/", "2"}]}], ",", 
+                  RowBox[{"yu", "+", "1"}]}], "}"}]}], "]"}], ",", 
+              "Nothing"}], "]"}], ",", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"dir", "\[NotEqual]", "1"}], ",", 
+              RowBox[{"Rectangle", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"a", "+", 
+                   RowBox[{"emin", "/", "2"}]}], ",", 
+                  RowBox[{"yl", "-", "1"}]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"a", "+", "\[Delta]"}], ",", 
+                  RowBox[{"yu", "+", "1"}]}], "}"}]}], "]"}], ",", 
+              "Nothing"}], "]"}]}], "}"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"gl", "=", 
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{"g", "[", "x", "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", "xl", ",", 
+             RowBox[{"a", "-", 
+              RowBox[{"emin", "/", "2"}]}]}], "}"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"Thick", ",", "Black"}], "}"}]}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"gr", "=", 
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{"g", "[", "x", "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", 
+             RowBox[{"a", "+", 
+              RowBox[{"emin", "/", "2"}]}], ",", "xu"}], "}"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"Thick", ",", "Black"}], "}"}]}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Show", "[", 
+         RowBox[{"hline", ",", "vline", ",", 
+          RowBox[{"If", "[", 
+           RowBox[{"\[Epsilon]s", ",", "hbar", ",", "blank"}], "]"}], ",", 
+          RowBox[{"If", "[", 
+           RowBox[{"\[Delta]s", ",", "vbar", ",", "blank"}], "]"}], ",", "gl",
+           ",", "gr", ",", 
+          RowBox[{"PlotRange", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"xl", ",", "xu"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"yl", ",", "yu"}], "}"}]}], "}"}]}], ",", 
+          RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+          RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]}]}], 
+      "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"l", ",", 
+         RowBox[{"g", "[", "a", "]"}], ",", "\"\<L\>\""}], "}"}], ",", "yl", 
+       ",", "yu"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\[Epsilon]", ",", "0.25", ",", "\"\<\[Epsilon]\>\""}], "}"}],
+        ",", "emin", ",", "emax"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\[Delta]", ",", "0.25", ",", "\"\<\[Delta]\>\""}], "}"}], 
+       ",", "emin", ",", "emax"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\[Epsilon]s", ",", "False", ",", "\"\<show \[Epsilon]\>\""}],
+         "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"False", ",", "True"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\[Delta]s", ",", "False", ",", "\"\<show \[Delta]\>\""}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"False", ",", "True"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"dir", ",", "0", ",", "\"\<side\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"0", "\[Rule]", "\"\<two-sided\>\""}], ",", 
+         RowBox[{"1", "\[Rule]", "\"\<left-hand\>\""}], ",", 
+         RowBox[{"2", "\[Rule]", "\"\<right-hand\>\""}]}], "}"}], ",", 
+       "RadioButton"}], "}"}]}], "]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.839601621357916*^9, 3.839602457763996*^9}, {
+  3.8396024908128405`*^9, 3.839602612551046*^9}, {3.8396026520845323`*^9, 
+  3.839602679793269*^9}, {3.839602818525146*^9, 3.8396028226927834`*^9}, {
+  3.839602858017965*^9, 3.83960297522575*^9}, {3.839603049766221*^9, 
+  3.8396032322537737`*^9}},
+ CellLabel->
+  "In[124]:=",ExpressionUUID->"2bc46112-f07c-47a5-ae71-2d644aa4a536"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"h", "[", "x_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Sin", "[", 
+    RowBox[{"4", "/", 
+     RowBox[{"(", 
+      RowBox[{"x", "-", "2"}], ")"}]}], "]"}], "+", 
+   "2"}]}], "\[IndentingNewLine]", 
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"a", "=", "2"}], ",", 
+     RowBox[{"xl", "=", "0"}], ",", 
+     RowBox[{"xu", "=", "4"}], ",", 
+     RowBox[{"yl", "=", "0"}], ",", 
+     RowBox[{"yu", "=", "4"}], ",", 
+     RowBox[{"emin", "=", "0.1"}], ",", 
+     RowBox[{"emax", "=", "1.0"}]}], "}"}], ",", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "gl", ",", "gr", ",", "hline", ",", "vline", ",", "hbar", ",", "vbar",
+          ",", 
+         RowBox[{"blank", "=", 
+          RowBox[{"Graphics", "[", "]"}]}]}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"hline", "=", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{"Black", ",", "Dashed", ",", 
+            RowBox[{"InfiniteLine", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "l"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"1", ",", "0"}], "}"}]}], "]"}]}], "}"}], "]"}]}], ";",
+         "\[IndentingNewLine]", 
+        RowBox[{"vline", "=", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{"Black", ",", "Dashed", ",", 
+            RowBox[{"InfiniteLine", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"a", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "1"}], "}"}]}], "]"}]}], "}"}], "]"}]}], ";",
+         "\[IndentingNewLine]", 
+        RowBox[{"hbar", "=", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{"LightRed", ",", 
+            RowBox[{"Opacity", "[", "0.4", "]"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"xl", "-", "1"}], ",", 
+                RowBox[{"l", "+", 
+                 RowBox[{"emin", "/", "2"}]}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"xu", "+", "1"}], ",", 
+                RowBox[{"l", "+", "\[Epsilon]"}]}], "}"}]}], "]"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"xl", "-", "1"}], ",", 
+                RowBox[{"l", "-", "\[Epsilon]"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"xu", "+", "1"}], ",", 
+                RowBox[{"l", "-", 
+                 RowBox[{"emin", "/", "2"}]}]}], "}"}]}], "]"}]}], "}"}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"vbar", "=", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{"LightBlue", ",", 
+            RowBox[{"Opacity", "[", "0.5", "]"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"a", "-", "\[Delta]"}], ",", 
+                RowBox[{"yl", "-", "1"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"a", "-", 
+                 RowBox[{"emin", "/", "2"}]}], ",", 
+                RowBox[{"yu", "+", "1"}]}], "}"}]}], "]"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"a", "+", 
+                 RowBox[{"emin", "/", "2"}]}], ",", 
+                RowBox[{"yl", "-", "1"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"a", "+", "\[Delta]"}], ",", 
+                RowBox[{"yu", "+", "1"}]}], "}"}]}], "]"}]}], "}"}], "]"}]}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"gl", "=", 
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{"h", "[", "x", "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", "xl", ",", 
+             RowBox[{"a", "-", 
+              RowBox[{"emin", "/", "2"}]}]}], "}"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"Thick", ",", "Black"}], "}"}]}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"gr", "=", 
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{"h", "[", "x", "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", 
+             RowBox[{"a", "+", 
+              RowBox[{"emin", "/", "2"}]}], ",", "xu"}], "}"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"Thick", ",", "Black"}], "}"}]}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Show", "[", 
+         RowBox[{"hline", ",", "vline", ",", 
+          RowBox[{"If", "[", 
+           RowBox[{"\[Epsilon]s", ",", "hbar", ",", "blank"}], "]"}], ",", 
+          RowBox[{"If", "[", 
+           RowBox[{"\[Delta]s", ",", "vbar", ",", "blank"}], "]"}], ",", "gl",
+           ",", "gr", ",", 
+          RowBox[{"PlotRange", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"xl", ",", "xu"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"yl", ",", "yu"}], "}"}]}], "}"}]}], ",", 
+          RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+          RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]}]}], 
+      "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"l", ",", "2", ",", "\"\<L\>\""}], "}"}], ",", "yl", ",", 
+       "yu"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\[Epsilon]", ",", "0.25", ",", "\"\<\[Epsilon]\>\""}], "}"}],
+        ",", "emin", ",", "emax"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\[Delta]", ",", "0.25", ",", "\"\<\[Delta]\>\""}], "}"}], 
+       ",", "emin", ",", "emax"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\[Epsilon]s", ",", "False", ",", "\"\<show \[Epsilon]\>\""}],
+         "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"False", ",", "True"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\[Delta]s", ",", "False", ",", "\"\<show \[Delta]\>\""}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"False", ",", "True"}], "}"}]}], "}"}]}], "]"}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.839601621357916*^9, 3.839602457763996*^9}, {
+  3.8396024908128405`*^9, 3.839602612551046*^9}, {3.8396026520845323`*^9, 
+  3.839602679793269*^9}, {3.839603294084089*^9, 3.839603385148199*^9}},
+ CellLabel->
+  "In[144]:=",ExpressionUUID->"66200c6c-4318-402f-b87d-745c4490ae0b"]
+},
+WindowSize->{760, 833},
+WindowMargins->{{572, Automatic}, {Automatic, 84}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"04feb955-8058-40bc-9538-119093d893ec"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 7117, 192, 318, "Input",ExpressionUUID->"c80e9cb2-1ead-469c-bd99-1500103a50a1"],
+Cell[7678, 214, 8234, 217, 371, "Input",ExpressionUUID->"2bc46112-f07c-47a5-ae71-2d644aa4a536"],
+Cell[15915, 433, 6970, 185, 314, "Input",ExpressionUUID->"66200c6c-4318-402f-b87d-745c4490ae0b"]
+}
+]
+*)
+
