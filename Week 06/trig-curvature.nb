@@ -1,0 +1,184 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6248,        176]
+NotebookOptionsPosition[      5891,        162]
+NotebookOutlinePosition[      6294,        178]
+CellTagsIndexPosition[      6251,        175]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"curve", ",", "pt", ",", "par"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"curve", "=", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"Sin", "[", "x", "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{
+            RowBox[{"-", "2"}], "Pi"}], ",", 
+           RowBox[{"2", "Pi"}]}], "}"}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"Thick", ",", "Blue"}], "}"}]}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"-", "2"}], "Pi"}], ",", 
+              RowBox[{"2", "Pi"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "3"}], ",", "3"}], "}"}]}], "}"}]}], ",", 
+         RowBox[{"Ticks", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{"i", ",", 
+              RowBox[{"{", 
+               RowBox[{"i", ",", 
+                RowBox[{
+                 RowBox[{"-", "2"}], "Pi"}], ",", 
+                RowBox[{"2", "Pi"}], ",", 
+                RowBox[{"Pi", "/", "2"}]}], "}"}]}], "]"}], ",", 
+            RowBox[{"Table", "[", 
+             RowBox[{"i", ",", 
+              RowBox[{"{", 
+               RowBox[{"i", ",", 
+                RowBox[{"-", "3"}], ",", "3", ",", "1"}], "}"}]}], "]"}]}], 
+           "}"}]}], ",", 
+         RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"pt", "=", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Black", ",", 
+          RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+          RowBox[{"Point", "[", 
+           RowBox[{"{", 
+            RowBox[{"x0", ",", 
+             RowBox[{"Sin", "[", "x0", "]"}]}], "}"}], "]"}]}], "}"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"par", "=", 
+       RowBox[{"Switch", "[", 
+        RowBox[{
+        "approx", ",", "\[IndentingNewLine]", "0", ",", "\[IndentingNewLine]", 
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{"Sin", "[", "x0", "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", 
+             RowBox[{
+              RowBox[{"-", "2"}], "Pi"}], ",", 
+             RowBox[{"2", "Pi"}]}], "}"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"Opacity", "[", "0", "]"}], "}"}]}]}], "]"}], ",", 
+         "\[IndentingNewLine]", "1", ",", "\[IndentingNewLine]", 
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Sin", "[", "x0", "]"}], "+", 
+            RowBox[{
+             RowBox[{"Cos", "[", "x0", "]"}], 
+             RowBox[{"(", 
+              RowBox[{"x", "-", "x0"}], ")"}]}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", 
+             RowBox[{
+              RowBox[{"-", "2"}], "Pi"}], ",", 
+             RowBox[{"2", "Pi"}]}], "}"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"Thick", ",", "Red"}], "}"}]}]}], "]"}], ",", 
+         "\[IndentingNewLine]", "2", ",", "\[IndentingNewLine]", 
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Sin", "[", "x0", "]"}], "+", 
+            RowBox[{
+             RowBox[{"Cos", "[", "x0", "]"}], 
+             RowBox[{"(", 
+              RowBox[{"x", "-", "x0"}], ")"}]}], "-", 
+            RowBox[{
+             FractionBox["1", "2"], 
+             RowBox[{"Sin", "[", "x0", "]"}], 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"x", "-", "x0"}], ")"}], "2"]}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", 
+             RowBox[{
+              RowBox[{"-", "2"}], "Pi"}], ",", 
+             RowBox[{"2", "Pi"}]}], "}"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"Thick", ",", "Red"}], "}"}]}]}], "]"}]}], 
+        "\[IndentingNewLine]", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Show", "[", 
+       RowBox[{"curve", ",", "par", ",", "pt"}], "]"}]}]}], 
+    "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x0", ",", "0", ",", "\"\<a\>\""}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"-", "2"}], "Pi"}], ",", 
+     RowBox[{"2", "Pi"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"approx", ",", "0", ",", "\"\<approximation\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"0", "\[Rule]", "\"\<none\>\""}], ",", 
+       RowBox[{"1", "\[Rule]", "\"\<linear\>\""}], ",", 
+       RowBox[{"2", "\[Rule]", "\"\<quadratic\>\""}]}], "}"}], ",", 
+     "RadioButton"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8418710257011924`*^9, 3.841871119056638*^9}, {
+  3.8418712405959444`*^9, 3.8418713445666676`*^9}, {3.841871397597865*^9, 
+  3.841871503962368*^9}, {3.8418715357963324`*^9, 3.8418717051949463`*^9}},
+ CellLabel->"In[16]:=",ExpressionUUID->"c6b45299-475d-4e78-bbd5-415db8cb98cd"]
+},
+WindowSize->{760, 833},
+WindowMargins->{{Automatic, 120}, {Automatic, 83}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"285e3bdf-cfbc-43c0-8a74-408b167e0793"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 5329, 140, 448, "Input",ExpressionUUID->"c6b45299-475d-4e78-bbd5-415db8cb98cd"]
+}
+]
+*)
+

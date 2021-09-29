@@ -10,16 +10,14 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      8361,        217]
-NotebookOptionsPosition[      7874,        200]
-NotebookOutlinePosition[      8277,        216]
-CellTagsIndexPosition[      8234,        213]
+NotebookDataLength[      4845,        139]
+NotebookOptionsPosition[      4488,        125]
+NotebookOutlinePosition[      4891,        141]
+CellTagsIndexPosition[      4848,        138]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-
-Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"Manipulate", "[", 
   RowBox[{
@@ -123,80 +121,7 @@ Cell[BoxData[
  CellChangeTimes->{{3.8390045645796337`*^9, 3.8390049148890533`*^9}, {
   3.8390049761333776`*^9, 3.8390051774537125`*^9}, {3.839005220401*^9, 
   3.8390052213923635`*^9}},
- CellLabel->"In[39]:=",ExpressionUUID->"86dd0058-9db6-4793-a505-c05e60ba3f53"],
-
-Cell[BoxData[
- TagBox[
-  StyleBox[
-   DynamicModuleBox[{$CellContext`height$$ = True, $CellContext`trace$$ = 
-    True, $CellContext`\[Theta]$$ = 1.1938052083641213`, Typeset`show$$ = 
-    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`\[Theta]$$], 0, 2 Pi}, {
-      Hold[$CellContext`height$$], {False, True}}, {
-      Hold[$CellContext`trace$$], {False, True}}}, Typeset`size$$ = {
-    360., {92., 97.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True}, 
-    DynamicBox[Manipulate`ManipulateBoxes[
-     1, StandardForm, 
-      "Variables" :> {$CellContext`height$$ = False, $CellContext`trace$$ = 
-        False, $CellContext`\[Theta]$$ = 0}, "ControllerVariables" :> {}, 
-      "OtherVariables" :> {
-       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
-        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
-        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
-         Typeset`skipInitDone$$}, "Body" :> 
-      Module[{$CellContext`bounds$ = 3, $CellContext`balance$ = 2}, 
-        Show[
-         Graphics[{Black, Thick, 
-           Circle[{0, 0}, 1], 
-           Line[{{0, 0}, 10 $CellContext`bounds$ {
-               Cos[$CellContext`\[Theta]$$], 
-               Sin[$CellContext`\[Theta]$$]}}], 
-           PointSize[Large], 
-           Point[{{
-              Cos[$CellContext`\[Theta]$$], 
-              Sin[$CellContext`\[Theta]$$]}}]}], 
-         Graphics[{
-           If[$CellContext`height$$, 
-            Opacity[1], 
-            Opacity[0]], Red, Thick, Dashed, 
-           InfiniteLine[{0, 
-             Sin[$CellContext`\[Theta]$$]}, {1, 0}], 
-           PointSize[Large], 
-           Point[{{0, 
-              Sin[$CellContext`\[Theta]$$]}}]}], 
-         Plot[
-          
-          Sin[$CellContext`t + $CellContext`\[Theta]$$], {$CellContext`t, \
-(-$CellContext`balance$) $CellContext`bounds$, 0}, PlotStyle -> Directive[
-            If[$CellContext`trace$$, 
-             Opacity[1], 
-             Opacity[0]], Red, Thick]], 
-         PlotRange -> {{(-$CellContext`balance$) $CellContext`bounds$, \
-$CellContext`balance$ $CellContext`bounds$}, {-$CellContext`bounds$, \
-$CellContext`bounds$}}, AspectRatio -> Automatic, Axes -> True]], 
-      "Specifications" :> {{$CellContext`\[Theta]$$, 0, 2 
-         Pi}, {$CellContext`height$$, {False, True}}, {$CellContext`trace$$, {
-         False, True}}}, "Options" :> {}, "DefaultOptions" :> {}],
-     ImageSizeCache->{411., {170., 176.}},
-     SingleEvaluation->True],
-    Deinitialization:>None,
-    DynamicModuleValues:>{},
-    SynchronousInitialization->True,
-    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
-    UnsavedVariables:>{Typeset`initDone$$},
-    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
-   Deployed->True,
-   StripOnInput->False],
-  Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{{3.839004617185309*^9, 3.839004632507049*^9}, 
-   3.8390046811748176`*^9, {3.839004733442557*^9, 3.8390047944523425`*^9}, {
-   3.839004845390074*^9, 3.839004950053111*^9}, {3.839005030130252*^9, 
-   3.8390052604404297`*^9}},
- CellLabel->"Out[39]=",ExpressionUUID->"02a65224-24f4-4445-b597-8d9b4006292b"]
-}, Open  ]]
+ CellLabel->"In[4]:=",ExpressionUUID->"86dd0058-9db6-4793-a505-c05e60ba3f53"]
 },
 WindowSize->{760, 833},
 WindowMargins->{{Automatic, 459}, {60, Automatic}},
@@ -215,10 +140,7 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[CellGroupData[{
-Cell[580, 22, 3927, 103, 200, "Input",ExpressionUUID->"86dd0058-9db6-4793-a505-c05e60ba3f53"],
-Cell[4510, 127, 3348, 70, 365, "Output",ExpressionUUID->"02a65224-24f4-4445-b597-8d9b4006292b"]
-}, Open  ]]
+Cell[558, 20, 3926, 103, 200, "Input",ExpressionUUID->"86dd0058-9db6-4793-a505-c05e60ba3f53"]
 }
 ]
 *)
