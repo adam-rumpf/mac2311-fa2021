@@ -1,0 +1,179 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5955,        169]
+NotebookOptionsPosition[      5598,        155]
+NotebookOutlinePosition[      6001,        171]
+CellTagsIndexPosition[      5958,        168]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"road", ",", "car", ",", "camera", ",", "lines", ",", 
+       RowBox[{"xl", "=", 
+        RowBox[{"-", "4"}]}], ",", 
+       RowBox[{"xu", "=", "4"}], ",", 
+       RowBox[{"rw", "=", "0.1"}], ",", 
+       RowBox[{"cl", "=", "0.225"}], ",", 
+       RowBox[{"cw", "=", "0.15"}], ",", 
+       RowBox[{"cd", "=", "1"}], ",", 
+       RowBox[{"cs", "=", "0.15"}], ",", 
+       RowBox[{"cr", "=", "0.35"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"road", "=", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Gray", ",", 
+          RowBox[{"Rectangle", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"xl", ",", 
+              RowBox[{
+               RowBox[{"-", "rw"}], "/", "2"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"xu", ",", 
+              RowBox[{"rw", "/", "2"}]}], "}"}]}], "]"}], ",", "Black", ",", 
+          "Thick", ",", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", 
+               RowBox[{
+                RowBox[{"-", "rw"}], "/", "2"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", 
+               RowBox[{"rw", "/", "2"}]}], "}"}]}], "}"}], "]"}]}], "}"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"car", "=", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Red", ",", 
+          RowBox[{"Rectangle", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"x0", "-", 
+               RowBox[{"cl", "/", "2"}]}], ",", 
+              RowBox[{
+               RowBox[{"-", "cw"}], "/", "2"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"x0", "+", 
+               RowBox[{"cl", "/", "2"}]}], ",", 
+              RowBox[{"cw", "/", "2"}]}], "}"}]}], "]"}]}], "}"}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"camera", "=", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Black", ",", 
+          RowBox[{"Polygon", "[", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", 
+                RowBox[{"-", "cd"}]}], "}"}], "+", 
+              RowBox[{"cw", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Cos", "[", 
+                  RowBox[{
+                   RowBox[{"2", "Pi", " ", 
+                    RowBox[{"i", "/", "3"}]}], "-", 
+                   RowBox[{"ArcTan", "[", 
+                    RowBox[{"cd", " ", "x0"}], "]"}], "-", 
+                   RowBox[{"Pi", "/", "6"}]}], "]"}], ",", 
+                 RowBox[{"Sin", "[", 
+                  RowBox[{
+                   RowBox[{"2", "Pi", " ", 
+                    RowBox[{"i", "/", "3"}]}], "-", 
+                   RowBox[{"ArcTan", "[", 
+                    RowBox[{"cd", " ", "x0"}], "]"}], "-", 
+                   RowBox[{"Pi", "/", "6"}]}], "]"}]}], "}"}]}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", "0", ",", "2"}], "}"}]}], "]"}], "]"}]}], 
+         "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"lines", "=", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Black", ",", 
+          RowBox[{"Circle", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", 
+              RowBox[{"-", "cd"}]}], "}"}], ",", "cr", ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"2", 
+                RowBox[{"Pi", " ", "/", "3"}]}], "-", 
+               RowBox[{"ArcTan", "[", 
+                RowBox[{"cd", " ", "x0"}], "]"}], "-", 
+               RowBox[{"Pi", "/", "6"}]}], ",", 
+              RowBox[{"Pi", "/", "2"}]}], "}"}]}], "]"}], ",", "Dashed", ",", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", "0"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", 
+               RowBox[{"-", "cd"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x0", ",", "0"}], "}"}]}], "}"}], "]"}]}], "}"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Show", "[", 
+       RowBox[{"lines", ",", "road", ",", "car", ",", "camera", ",", 
+        RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]}]}], 
+    "\[IndentingNewLine]", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x0", ",", 
+       RowBox[{"-", "3.5"}], ",", "\"\<x\>\""}], "}"}], ",", 
+     RowBox[{"-", "3.5"}], ",", "3.5"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8420411792167463`*^9, 3.8420417776732407`*^9}, {
+  3.842041820583646*^9, 3.8420419749108977`*^9}},
+ CellLabel->
+  "In[144]:=",ExpressionUUID->"c281afb8-208f-4540-b5cc-7479df43a5b7"]
+},
+WindowSize->{760, 832},
+WindowMargins->{{521, Automatic}, {45, Automatic}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"f4976063-5f7a-4f60-9415-b2c6fd525d0c"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 5036, 133, 314, "Input",ExpressionUUID->"c281afb8-208f-4540-b5cc-7479df43a5b7"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
